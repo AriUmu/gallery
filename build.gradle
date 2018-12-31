@@ -27,7 +27,7 @@ repositories {
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
-	compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
+	compile group: 'org.postgresql', name: 'postgresql', version: '9.3-1100-jdbc41'
 	testCompile group: 'com.h2database', name: 'h2', version: '1.0.60'
 
 

@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class DataBaseConfig {
 
-  @Value("${spring.datasource.driver}")
+  @Value("${spring.datasource.driverClassName}")
   private String driverClassName;
 
   @Value("${spring.datasource.url}")
@@ -32,7 +32,6 @@ public class DataBaseConfig {
   private String dbPassword;
 
   @Bean(name = "DataSource")
-  @ConfigurationProperties(prefix = "bar.datasource")
   public DataSource dataSource() {
     return DataSourceBuilder.create()
             .password(dbPassword)
