@@ -1,11 +1,14 @@
 package com.example.gallery.dto;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.sql.Timestamp;
 
 public class UserDTO {
 
   private Long id;
 
+  @NotEmpty
   private String login;
 
   private String password;

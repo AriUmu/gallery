@@ -41,7 +41,7 @@ public class DataBaseConfig {
             .build();
   }
 
-  @Bean(name = "EntityManagerFactory")
+  @Bean(name = "entityManagerFactory")
   public LocalContainerEntityManagerFactoryBean EntityManagerFactory(
           EntityManagerFactoryBuilder builder, @Qualifier("DataSource") DataSource dataSource) {
     return builder.dataSource(dataSource).packages("com.example.gallery.domain").persistenceUnit("gallery")
@@ -50,7 +50,7 @@ public class DataBaseConfig {
 
   @Bean(name = "TransactionManager")
   public PlatformTransactionManager TransactionManager(
-          @Qualifier("EntityManagerFactory") EntityManagerFactory EntityManagerFactory) {
+          @Qualifier("entityManagerFactory") EntityManagerFactory EntityManagerFactory) {
     return new JpaTransactionManager(EntityManagerFactory);
   }
 }
