@@ -4,6 +4,9 @@ import com.example.gallery.domain.Profile;
 import com.example.gallery.dto.UserDTO;
 import com.example.gallery.repository.ProfileRepository;
 import com.example.gallery.service.UserService;
+import com.wordnik.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -12,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/api")
 public class UsersController {
+  private final static Logger logger = LoggerFactory.getLogger( UsersController.class );
 
   private UserService userService;
   private ProfileRepository profileRepository;
@@ -24,6 +28,12 @@ public class UsersController {
   @GetMapping("/users")
   public List<UserDTO> query(){
     return userService.getUsers();
+  }
+
+  @RequestMapping(method = RequestMethod.GET, value = "/hello")
+  @ApiOperation(value = "registration attempt", notes = "Temporary register service")
+  public String getPage(){
+    return "Hello World";
   }
 
   @GetMapping("/users/{id}")

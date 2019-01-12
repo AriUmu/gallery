@@ -48,7 +48,7 @@ public class DataBaseConfig {
             .build();
   }
 
-  @Bean(name = "TransactionManager")
+  @Bean(name = "transactionManager")
   public PlatformTransactionManager TransactionManager(
           @Qualifier("entityManagerFactory") EntityManagerFactory EntityManagerFactory) {
     return new JpaTransactionManager(EntityManagerFactory);
