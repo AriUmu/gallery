@@ -1,7 +1,5 @@
 package com.example.gallery.domain;
 
-import com.sun.istack.internal.NotNull;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,7 +11,6 @@ public class Profile {
   @GeneratedValue(strategy= GenerationType.AUTO)
   private Long id;
 
-  @NotNull
   private String login;
 
   public Long getId() {
