@@ -47,6 +47,9 @@ dependencies {
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.0.1'
 	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.0.1'
+	// https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+	compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.0'
+
 
 
 }

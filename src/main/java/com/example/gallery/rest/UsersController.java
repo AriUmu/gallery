@@ -1,10 +1,12 @@
 package com.example.gallery.rest;
 
 import com.example.gallery.domain.Profile;
+import com.example.gallery.domain.User;
 import com.example.gallery.dto.UserDTO;
 import com.example.gallery.repository.ProfileRepository;
 import com.example.gallery.service.UserService;
 import com.wordnik.swagger.annotations.ApiOperation;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,6 @@ import java.util.List;
 @RequestMapping(value = "/api")
 public class UsersController {
   private final static Logger logger = LoggerFactory.getLogger( UsersController.class );
-  //TODO расставить везде get/post/
 
   @Autowired
   private UserService userService;
@@ -30,12 +31,13 @@ public class UsersController {
   }
 
   @GetMapping("/users")
-  public List<UserDTO> query(){
+  @ApiOperation(value = "return all users", notes = "return all users")
+  public List<UserDTO> getAllUsers(){
     return userService.getUsers();
   }
 
-  @RequestMapping(method = RequestMethod.GET, value = "/hello")
-  @ApiOperation(value = "registration attempt", notes = "Temporary register service")
+  @GetMapping(value = "/hello")
+  @ApiOperation(value = "test page", notes = "test pege return hello.jpg")
   public String getPage(){
     return "Hello World";
   }
@@ -55,10 +57,11 @@ public class UsersController {
     return profileRepository.findAll();
   }
 
-  @RequestMapping(method = RequestMethod.POST, value = "/hello")
-  public void saveUser(UserDTO userDTO){
-    userService.validationParams(userDTO);
-    userService.saveUser(userDTO);
+  @PostMapping(value = "/user")
+  public void saveUser(@RequestBody UserDTO userDTO){
+    boolean noError = userService.validationParams(userDTO);
+    if(noError){
+      userService.saveUser(userDTO);
+    }
   }
-
 }
