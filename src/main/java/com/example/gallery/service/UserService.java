@@ -50,4 +50,17 @@ public class UserService {
     return userMapper.userToUserDTO(currentUser);
   }
 
+  public void saveUser(UserDTO userDTO){
+    userDTO.setPassword(coderPassword(userDTO.getPassword()));
+  }
+
+  private String coderPassword(String password){
+
+    return "";
+  }
+
+  public boolean chechParams(UserDTO userDTO){
+    //todo check param before saving in db
+    return true;
+  }
 }

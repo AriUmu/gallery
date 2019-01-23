@@ -7,6 +7,7 @@ import com.example.gallery.service.UserService;
 import com.wordnik.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -16,8 +17,11 @@ import java.util.List;
 @RequestMapping(value = "/api")
 public class UsersController {
   private final static Logger logger = LoggerFactory.getLogger( UsersController.class );
+  //TODO расставить везде get/post/
 
+  @Autowired
   private UserService userService;
+  @Autowired
   private ProfileRepository profileRepository;
 
   public UsersController(UserService userService, ProfileRepository profileRepository) {
@@ -49,6 +53,12 @@ public class UsersController {
   @GetMapping("/users/profiles")
   public List<Profile> getProfiles(){
     return profileRepository.findAll();
+  }
+
+  @RequestMapping(method = RequestMethod.POST, value = "/hello")
+  public void saveUser(UserDTO userDTO){
+    userService.chechParams(userDTO);
+    userService.saveUser(userDTO);
   }
 
 }
