@@ -57,7 +57,7 @@ public class UsersController {
 
   @RequestMapping(method = RequestMethod.POST, value = "/hello")
   public void saveUser(UserDTO userDTO){
-    userService.chechParams(userDTO);
+    userService.validationParams(userDTO);
     userService.saveUser(userDTO);
   }
 
