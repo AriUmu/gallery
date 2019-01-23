@@ -15,6 +15,10 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.persistence.EntityManagerFactory;
 
+/**
+ * Configuration for persistence and hibernate
+ */
+
 @Configuration
 @EnableJpaRepositories(basePackages = {"com.example.gallery.repository"})
 public class PersistenceConfig {

@@ -1,14 +1,11 @@
-DROP SCHEMA IF EXISTS public;
+CREATE SCHEMA IF NOT EXISTS public;
 
-create table user (
-  id bigint,
-  name varchar(255),
-  login varchar(255),
-  password varchar(255),
-  sessionId BIGINT,
-  lastLoginTime TIMESTAMP,
-  profile OTHER,
-  primary key (id)
+create table profile (
+  id int,
+  name varchar(255) NOT NULL,
+  primary key  (id)
 );
 
--- INSERT INTO user (name, login, password, sessionId, lastLoginTime, profile) VALUES ('user1', 'userlogin', 'qwerty', 1234, '17-09-2012 18:47:52.69');
+INSERT INTO profile (id, name) VALUES (1, 'user');
+INSERT INTO profile (id, name) VALUES (2, 'admin');
+INSERT INTO profile (id, name) VALUES (3, 'manager');

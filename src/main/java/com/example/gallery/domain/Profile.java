@@ -11,7 +11,7 @@ public class Profile {
   @GeneratedValue(strategy= GenerationType.AUTO)
   private Long id;
 
-  private String login;
+  private String name;
 
   public Long getId() {
     return id;
@@ -21,12 +21,12 @@ public class Profile {
     this.id = id;
   }
 
-  public String getLogin() {
-    return login;
+  public String getName() {
+    return name;
   }
 
-  public void setLogin(String login) {
-    this.login = login;
+  public void setName(String name) {
+    this.name = name;
   }
 
   @ManyToMany(fetch = FetchType.EAGER)
