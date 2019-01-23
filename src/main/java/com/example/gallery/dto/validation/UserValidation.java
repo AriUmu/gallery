@@ -14,13 +14,14 @@ public class UserValidation implements Validator {
 
   @Override
   public void validate(Object obj, Errors errors) {
-    //TODO add for all fields
-      UserDTO userDTO = (UserDTO) obj;
-      if(userDTO.getPassword().length() < 6){
+    UserDTO userDTO = (UserDTO) obj;
+    if (!userDTO.getPassword().isEmpty()) {
+      if (userDTO.getPassword().length() < 5) {
         errors.rejectValue("password", "minLengthIs6");
       }
-      if(userDTO.getName().isEmpty()){
-        errors.rejectValue("name", "value.empty");
-      }
+    }
+    if (userDTO.getName().isEmpty()) {
+      errors.rejectValue("name", "name is empty");
+    }
   }
 }

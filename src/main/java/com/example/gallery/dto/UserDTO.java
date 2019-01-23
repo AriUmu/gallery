@@ -11,6 +11,7 @@ public class UserDTO {
   @NotEmpty
   private String login;
 
+  @NotEmpty
   private String password;
 
   private Timestamp lastLoginTime;

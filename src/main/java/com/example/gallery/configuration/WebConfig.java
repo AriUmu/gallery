@@ -1,5 +1,6 @@
 package com.example.gallery.configuration;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -28,11 +29,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     resolver.setViewClass(JstlView.class);
     return resolver;
   }
-//
-//  @Bean
-//  public BCryptPasswordEncoder passwordEncoder() {
-//    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//    return bCryptPasswordEncoder;
-//  }
+
+  @Bean
+  public ModelMapper modelMapper() {
+    return new ModelMapper();
+  }
 
 }
