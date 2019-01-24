@@ -52,7 +52,7 @@ public class DataBaseConfig {
 
     final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
     if(profile.equals("dev")){
-       populator.addScript(dbSQLSchema);
+//       populator.addScript(dbSQLSchema);
 //      populator.addScript(dbSQLSData);
     }
     DatabasePopulatorUtils.execute(populator, dataSource);
