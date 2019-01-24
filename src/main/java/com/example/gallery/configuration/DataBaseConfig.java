@@ -35,6 +35,12 @@ public class DataBaseConfig {
   @Value("${dbSQLSchema}")
   private Resource dbSQLSchema;
 
+  @Value("${dbSQLData}")
+  private Resource dbSQLSData;
+
+  @Value("${spring.profiles.active}")
+  private String profile;
+
   @Bean(name = "DataSource")
   public DataSource dataSource() {
     DataSource dataSource = DataSourceBuilder.create()
@@ -45,7 +51,10 @@ public class DataBaseConfig {
             .build();
 
     final ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-    populator.addScript(dbSQLSchema);
+    if(profile.equals("dev")){
+       populator.addScript(dbSQLSchema);
+//      populator.addScript(dbSQLSData);
+    }
     DatabasePopulatorUtils.execute(populator, dataSource);
     return dataSource;
   }

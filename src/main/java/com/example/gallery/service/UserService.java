@@ -1,6 +1,5 @@
 package com.example.gallery.service;
 
-import com.example.gallery.domain.Profile;
 import com.example.gallery.domain.User;
 import com.example.gallery.dto.UserDTO;
 import com.example.gallery.dto.validation.UserValidation;

@@ -1,6 +1,5 @@
 package com.example.gallery.rest;
 
-import com.example.gallery.domain.Profile;
 import com.example.gallery.dto.ProfileDTO;
 import com.example.gallery.service.ProfileService;
 import org.slf4j.Logger;

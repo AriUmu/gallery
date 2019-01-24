@@ -2,7 +2,6 @@ package com.example.gallery.service;
 
 import com.example.gallery.domain.Profile;
 import com.example.gallery.dto.ProfileDTO;
-import com.example.gallery.mapper.ProfileMapper;
 import com.example.gallery.mapper.ProfileMapperImpl;
 import com.example.gallery.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
