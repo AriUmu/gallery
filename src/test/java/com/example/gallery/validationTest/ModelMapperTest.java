@@ -10,7 +10,6 @@ import org.junit.Test;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.validation.constraints.AssertTrue;
 import java.lang.reflect.Type;
 import java.sql.Timestamp;
 import java.util.ArrayList;

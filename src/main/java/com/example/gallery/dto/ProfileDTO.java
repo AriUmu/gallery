@@ -1,12 +1,14 @@
 package com.example.gallery.dto;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class ProfileDTO {
 
   private Long id;
 
-  private String login;
+  @NotNull
+  private String name;
 
   private List<AuthorityDTO> authorities;
 
@@ -18,12 +20,12 @@ public class ProfileDTO {
     this.id = id;
   }
 
-  public String getLogin() {
-    return login;
+  public String getName() {
+    return name;
   }
 
-  public void setLogin(String login) {
-    this.login = login;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public List<AuthorityDTO> getAuthorities() {
