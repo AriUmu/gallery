@@ -14,7 +14,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity security) throws Exception
   {
     //Если тебе кажется, что не работает - оно работает, почисти кеш
-   // security.httpBasic().disable();
     security.cors().and().csrf().disable();
   }
 }
