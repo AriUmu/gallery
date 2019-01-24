@@ -49,7 +49,8 @@ dependencies {
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.0.1'
 	// https://mvnrepository.com/artifact/org.modelmapper/modelmapper
 	compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.0'
-
+	// https://mvnrepository.com/artifact/com.google.code.gson/gson
+	compile group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
 
 
 }
