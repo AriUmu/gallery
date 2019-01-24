@@ -1,7 +1,7 @@
 CREATE SCHEMA IF NOT EXISTS public;
 
 create table profile (
-  id int,
+  id BIGINT,
   name varchar(255) NOT NULL,
   primary key  (id)
 );
