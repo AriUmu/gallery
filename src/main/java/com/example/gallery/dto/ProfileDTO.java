@@ -1,11 +1,13 @@
 package com.example.gallery.dto;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class ProfileDTO {
 
   private Long id;
 
+  @NotNull
   private String name;
 
   private List<AuthorityDTO> authorities;

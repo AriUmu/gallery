@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,5 +26,11 @@ public class ProfileService {
     List<Profile> all = profileRepository.findAll();
     List<ProfileDTO> profileDTO = profileMapper.listProfileToProfileDTO(all);
     return profileDTO;
+  }
+
+  public void save(ProfileDTO profileDTO){
+    Profile profile = profileMapper.ProfileDTOToProfile(profileDTO);
+    profile.setAuthorities(new ArrayList<>());
+    profileRepository.save(profile);
   }
 }
