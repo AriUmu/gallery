@@ -26,7 +26,7 @@ public class PersistenceConfig {
   @Autowired
   DataBaseConfig dataSourceConfig;
 
-  @Bean
+  @Bean(name = "entityManagerFactory")
   public EntityManagerFactory entityManagerFactory() {
     LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
     factoryBean.setPersistenceUnitManager(persistenceUnitManager());
