@@ -16,20 +16,15 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.example.gallery")
-public class WebConfig extends WebMvcConfigurerAdapter {
-
-  @Override
-  public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    registry.addResourceHandler("/WEB-INF/pages/**").addResourceLocations("/pages/");
-  }
+public class WebConfig {
 
   @Bean
-  public InternalResourceViewResolver setupViewResolver() {
-    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-    resolver.setPrefix("/WEB-INF/pages/");
-    resolver.setSuffix(".jsp");
-    resolver.setViewClass(JstlView.class);
-    return resolver;
+  public InternalResourceViewResolver viewResolver() {
+    InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+    viewResolver.setViewClass(JstlView.class);
+    viewResolver.setPrefix("/WEB-INF/pages/");
+    viewResolver.setSuffix(".jsp");
+    return viewResolver;
   }
 
   @Bean
@@ -38,7 +33,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
   }
 
   @Bean
-  ServletRegistrationBean h2servletRegistration(){
+  ServletRegistrationBean h2servletRegistration() {
     ServletRegistrationBean registrationBean = new ServletRegistrationBean(new WebServlet());
     registrationBean.addUrlMappings("/console/*");
     return registrationBean;
